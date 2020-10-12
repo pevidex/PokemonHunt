@@ -8,18 +8,20 @@
 ### Setup
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Run
 
 ```
+cd solution
 python pokemon_hunt.py
 ```
 
 ### Test
 
 ```
+cd solution
 python tests.py
 ```
 
