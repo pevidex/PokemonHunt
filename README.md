@@ -1,6 +1,4 @@
-# PokemonHunt
-
-## Exercise for PremiumMinds
+# PokemonHunt - Exercise for PremiumMinds
 
 ### Prerequisites
 
@@ -10,19 +8,19 @@ MongoDb
 ### Setup
 
 ```
-	pip install requirements.txt
+pip install requirements.txt
 ```
 
 ### How to run
 
 ```
-	python pokemon_hunt.py
+python pokemon_hunt.py
 ```
 
 ### How to run tests
 
 ```
-	python tests.py
+python tests.py
 ```
 
 ### Descrição da solução
@@ -35,8 +33,9 @@ Quando o Ash sai dos limites da matriz, podem acontecer 3 casos:
 
 a) Está a entrar numa zona nunca antes visitada.
 b) Está a entrar numa zona já antes visitada e:
-	b1) A matriz encontra-se em cache (cache_matrices)
-	b2) A matriz não se encontra em cache
+
+	b1) A matriz encontra-se em cache (cache_matrices);
+	b2) A matriz não se encontra em cache.
 
 Para resolver a situação a), é rendida uma nova matriz e a anterior é colocada no topo da cache. É registado um ponto de entrada nesta nova matriz. Este ponto de entrada contém um par de coordenadas e um ponteiro para a posição do input que gerou esta posição. O objetivo é poder reconstruir esta matriz no futuro se for necessário. Podem ser registados mais que 1 pontos de entrada.
 
