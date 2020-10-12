@@ -12,11 +12,6 @@ matrix_count = 0
 cache_matrices = []
 MAX_NUMBER_OF_MATRICES_IN_MEMORY = 10000
 
-n_thread = None
-s_thread = None
-o_thread = None
-e_thread = None
-
 
 def is_input_valid(commands: str) -> bool:
     for character in commands:
