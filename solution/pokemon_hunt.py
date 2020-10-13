@@ -216,7 +216,7 @@ def pokemon_hunt() -> None:
 
     if not is_input_valid(input_):
         print("Bad input")
-        return
+        return -1
 
     init()
 
