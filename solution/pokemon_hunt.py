@@ -130,6 +130,7 @@ def swap_matrixes(command: str) -> None:
     else:
         build_matrix(matrix)
         add_new_entry_position_to_matrix(matrix)
+        cache_matrices.append(matrix)
     set_current_matrix(matrix)
     visit_house()
 
