@@ -58,22 +58,22 @@ class MultipleMatricesTest(TestCase):
 
 class CacheAndDbTest(TestCase):
 	def test_low_cache(self):
-		inputFile = open("../inputs/input2.txt", "r")
+		inputFile = open("../inputs/input3.txt", "r")
 		input = inputFile.read()
 		inputFile.close()
 		pokemon_hunt.MAX_NUMBER_OF_MATRICES_IN_MEMORY = 10
 		with patch('builtins.input',
 				   return_value=input) as _raw_input:
-			self.assertEqual(pokemon_hunt.pokemon_hunt(), 21768)
+			self.assertEqual(pokemon_hunt.pokemon_hunt(), 59001)
 
 	def test_high_cache(self):
-		inputFile = open("../inputs/input2.txt", "r")
+		inputFile = open("../inputs/input3.txt", "r")
 		input = inputFile.read()
 		inputFile.close()
 		pokemon_hunt.MAX_NUMBER_OF_MATRICES_IN_MEMORY = 10000
 		with patch('builtins.input',
 				   return_value=input) as _raw_input:
-			self.assertEqual(pokemon_hunt.pokemon_hunt(), 21768)
+			self.assertEqual(pokemon_hunt.pokemon_hunt(), 59001)
 
 class LargeInputTest(TestCase):
 	def test_large_input_1(self):
