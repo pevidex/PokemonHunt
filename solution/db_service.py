@@ -13,7 +13,7 @@ def init() -> None:
     global matrices
 
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
-    my_db = my_client["premium_minds_d"]
+    my_db = my_client["premium_minds_db"]
 
     reset_tables()
 
