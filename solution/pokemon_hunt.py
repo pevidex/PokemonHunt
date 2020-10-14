@@ -10,7 +10,7 @@ input_index = 0
 total_pokemons_hunted = 0
 matrix_count = 0
 cache_matrices = []
-MAX_NUMBER_OF_MATRICES_IN_MEMORY = 1000
+MAX_NUMBER_OF_MATRICES_IN_MEMORY = 10000
 
 
 def is_input_valid(commands: str) -> bool:
@@ -71,12 +71,13 @@ def pop_matrix() -> None:
     db_service.save_matrix(cache_matrices[0])
     del cache_matrices[0]
 
+def add_matrix_to_cache(matrix: Matrix) -> None:
+    if len(cache_matrices) == MAX_NUMBER_OF_MATRICES_IN_MEMORY:
+        pop_matrix()
+    cache_matrices.append(matrix)
 
 def generate_matrix(command: str) -> Matrix:
     global matrix_count
-
-    if len(cache_matrices) == MAX_NUMBER_OF_MATRICES_IN_MEMORY:
-        pop_matrix()
 
     matrix = Matrix(matrix_count, current_matrix.x_start, current_matrix.x_end, current_matrix.y_start,
                     current_matrix.y_end,
@@ -84,7 +85,7 @@ def generate_matrix(command: str) -> Matrix:
 
     translate_matrix_based_on_command(command, matrix)
     matrix_count += 1
-    cache_matrices.append(matrix)
+    add_matrix_to_cache(matrix)
     return matrix
 
 
@@ -130,7 +131,7 @@ def swap_matrixes(command: str) -> None:
     else:
         build_matrix(matrix)
         add_new_entry_position_to_matrix(matrix)
-        cache_matrices.append(matrix)
+        add_matrix_to_cache(matrix)
     set_current_matrix(matrix)
     visit_house()
 
@@ -216,7 +217,7 @@ def pokemon_hunt() -> None:
     # input_ = file.read()
 
     if not is_input_valid(input_):
-        print("Bad input")
+        #print("Bad input")
         return -1
 
     init()
@@ -230,7 +231,7 @@ def pokemon_hunt() -> None:
 
     db_service.close_connection()
 
-    print("total: " + str(total_pokemons_hunted))
+    #print("total: " + str(total_pokemons_hunted))
     return total_pokemons_hunted
 
 
