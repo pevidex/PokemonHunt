@@ -10,7 +10,7 @@ input_index = 0
 total_pokemons_hunted = 0
 matrix_count = 0
 cache_matrices = []
-MAX_NUMBER_OF_MATRICES_IN_MEMORY = 10000
+MAX_NUMBER_OF_MATRICES_IN_MEMORY = 1000
 
 
 def is_input_valid(commands: str) -> bool:
@@ -40,7 +40,7 @@ def build_matrix(matrix: Matrix) -> None:
     matrix.build_empty_matrix()
     for entry_position in matrix.entry_positions:
         position = None
-        start_pointer = -1 if entry_position.input_index == -1 else entry_position.input_index
+        start_pointer = -1 if entry_position.command_index == -1 else entry_position.command_index
         for index in range(start_pointer, input_index):
             if position is None:
                 position = entry_position.position

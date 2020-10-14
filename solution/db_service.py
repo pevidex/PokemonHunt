@@ -13,7 +13,7 @@ def init() -> None:
     global matrices
 
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
-    my_db = my_client["premium_minds_db"]
+    my_db = my_client["premium_minds_d"]
 
     reset_tables()
 
@@ -31,7 +31,7 @@ def save_matrix(matrix: Matrix) -> None:
     matrix = {"id": matrix.id, "x_start": matrix.x_start, "x_end": matrix.x_end, "y_start": matrix.y_start,
               "y_end": matrix.y_end, "entry_positions": [entry.as_dict() for entry in matrix.entry_positions]}
 
-    x = matrices.update_one({'id':matrix['id']}, matrix, True)
+    x = matrices.update_one({'id':matrix['id']}, {"$set": matrix}, True)
 
 
 def get_matrix_containing_position(position: Position) -> Matrix:
