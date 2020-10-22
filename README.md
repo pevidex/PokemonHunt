@@ -1,4 +1,4 @@
-# PokemonHunt - Exercise for PremiumMinds
+# PokemonHunt
 
 ### Prerequisites
 
